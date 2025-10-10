@@ -1,0 +1,49 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "biography": "Biografía",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Bienvenido a Mi Portafolio",
+    "subtitle": "Soy un desarrollador full-stack apasionado creando soluciones web innovadoras y entregando experiencias de usuario excepcionales.",
+    "viewProjects": "Ver Mis Proyectos",
+    "getInTouch": "Ponte en Contacto"
+  },
+  "biography": {
+    "title": "Acerca de Mí",
+    "name": "John Doe",
+    "title": "Desarrollador Full Stack",
+    "description": "Apasionado por crear soluciones web innovadoras y entregar experiencias de usuario excepcionales. Me encanta trabajar con tecnologías modernas y resolver problemas complejos.",
+    "skills": "Habilidades",
+    "interests": "Áreas de interés",
+    "biographyText": {
+      "paragraph1": "Nací en la ciudad de México en 1991, desde siempre eh tenido curiosidad por bla bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paragraph2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "paragraph3": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Aquí están algunos de los proyectos en los que he trabajado recientemente"
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "subtitle": "Me encantaría saber de ti. Envíame un mensaje y responderé lo antes posible.",
+    "form": {
+      "name": "tu nombre",
+      "email": "correo electrónico",
+      "phone": "teléfono",
+      "company": "empresa",
+      "message": "mensaje",
+      "anonymousMessage": "mensaje anónimo:",
+      "send": "Enviar"
+    },
+    "contactInfo": {
+      "title": "Información de Contacto",
+      "responseTime": "Tiempo de Respuesta",
+      "responseTimeText": "Normalmente respondo a los mensajes dentro de 24 horas. Para asuntos urgentes, por favor llámame o envíame un mensaje directamente."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "navigation": {
+    "home": "Home",
+    "biography": "Biography",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Welcome to My Portfolio",
+    "subtitle": "I'm a passionate full-stack developer creating innovative web solutions and delivering exceptional user experiences.",
+    "viewProjects": "View My Projects",
+    "getInTouch": "Get In Touch"
+  },
+  "biography": {
+    "title": "About Me",
+    "name": "John Doe",
+    "title": "Full Stack Developer",
+    "description": "Passionate about creating innovative web solutions and delivering exceptional user experiences. I love working with modern technologies and solving complex problems.",
+    "skills": "Skills",
+    "interests": "Interests areas",
+    "biographyText": {
+      "paragraph1": "Born in Mexico City in 1991, I have always had curiosity for bla bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paragraph2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "paragraph3": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Here are some of the projects I've worked on recently"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'd love to hear from you. Send me a message and I'll respond as soon as possible.",
+    "form": {
+      "name": "Your name",
+      "email": "Email address",
+      "phone": "Phone",
+      "company": "Company",
+      "message": "Message",
+      "anonymousMessage": "Anonymous message",
+      "send": "Send"
+    },
+    "contactInfo": {
+      "title": "Contact Information",
+      "responseTime": "Response Time",
+      "responseTimeText": "I typically respond to messages within 24 hours. For urgent matters, please call or text me directly."
+    }
+  }
+}
