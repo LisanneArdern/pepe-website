@@ -50,7 +50,7 @@ const App: React.FC = () => {
           navbar={{
             width: 300,
             breakpoint: 'md',
-            collapsed: { mobile: !opened },
+            collapsed: { mobile: !opened, desktop: true },
           }}
           padding={0}
         >
@@ -59,7 +59,7 @@ const App: React.FC = () => {
           </AppShell.Header>
 
           <AppShell.Navbar p="md">
-            <Navigation mobile={true} />
+            <Navigation mobile={true} onBurgerClick={toggle} />
           </AppShell.Navbar>
 
           <AppShell.Main>
