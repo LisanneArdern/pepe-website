@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { MantineProvider, Text, Group, Button, AppShell } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
 import Navigation from "./components/Navigation";
 import Projects from "./pages/Projects";
 import Biography from "./pages/Biography";
@@ -43,7 +42,10 @@ const App: React.FC = () => {
   return (
     <MantineProvider>
       <Router>
-        <AppShell header={{ height: 60 }} padding={0}>
+        <AppShell 
+          header={{ height: 60 }} 
+          padding={0}
+        >
           <AppShell.Header>
             <Navigation />
           </AppShell.Header>
