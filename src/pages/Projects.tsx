@@ -88,45 +88,51 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <Container size="xl" py="xl">
-      <Grid>
-        {projects.map((project) => (
-          <Grid.Col key={project.id} span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-            <Box
-              style={{
-                cursor: 'pointer',
-                transition: 'transform 0.2s ease',
-                '&:hover': {
-                  transform: 'translateY(-2px)'
-                }
-              }}
-            >
+    <div style={{ 
+      backgroundColor: '#2c2c2c', 
+      minHeight: '100vh',
+      padding: '2rem 0'
+    }}>
+      <Container size="xl" py="xl">
+        <Grid>
+          {projects.map((project) => (
+            <Grid.Col key={project.id} span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
               <Box
                 style={{
-                  height: '300px',
-                  backgroundImage: `url(${project.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundColor: '#f8f9fa',
-                  border: '1px solid #e9ecef',
-                  borderRadius: '4px',
-                  marginBottom: '1rem'
+                  cursor: 'pointer',
+                  transition: 'transform 0.2s ease',
+                  '&:hover': {
+                    transform: 'translateY(-2px)'
+                  }
                 }}
-              />
-              
-              <Box>
-                <Text size="lg" fw={500} mb="xs">
-                  {project.title}
-                </Text>
-                <Text size="sm" c="dimmed">
-                  {project.category}
-                </Text>
+              >
+                <Box
+                  style={{
+                    height: '300px',
+                    backgroundImage: `url(${project.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundColor: '#f8f9fa',
+                    border: '1px solid #e9ecef',
+                    borderRadius: '4px',
+                    marginBottom: '1rem'
+                  }}
+                />
+                
+                <Box>
+                  <Text size="lg" fw={500} mb="xs" style={{ color: 'white' }}>
+                    {project.title}
+                  </Text>
+                  <Text size="sm" style={{ color: '#999' }}>
+                    {project.category}
+                  </Text>
+                </Box>
               </Box>
-            </Box>
-          </Grid.Col>
-        ))}
-      </Grid>
-    </Container>
+            </Grid.Col>
+          ))}
+        </Grid>
+      </Container>
+    </div>
   );
 };
 

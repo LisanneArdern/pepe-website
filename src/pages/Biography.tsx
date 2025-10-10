@@ -34,8 +34,13 @@ const Biography: React.FC = () => {
   ];
 
   return (
-    <Container size="lg" py="xl">
-      <Grid>
+    <div style={{ 
+      backgroundColor: 'white', 
+      minHeight: '100vh',
+      padding: '2rem 0'
+    }}>
+      <Container size="lg" py="xl">
+        <Grid>
         {/* Main Biography Section */}
         <Grid.Col span={{ base: 12, lg: 8 }}>
           <Grid>
@@ -151,7 +156,8 @@ const Biography: React.FC = () => {
           </Text>
         </Box>
       </Box>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
