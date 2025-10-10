@@ -66,7 +66,7 @@ const Navigation: React.FC = () => {
           style={{
             color: navStyles.textColor,
             textDecoration: "none",
-            display: "flex",
+            display: "inline-flex",
             alignItems: "center",
             gap: "8px",
             padding: "8px 12px",
@@ -75,6 +75,7 @@ const Navigation: React.FC = () => {
             backgroundColor: location.pathname === item.path 
               ? (navStyles.backgroundColor === "white" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)")
               : "transparent",
+            whiteSpace: "nowrap",
           }}
           onMouseEnter={(e) => {
             if (location.pathname !== item.path) {
@@ -90,9 +91,9 @@ const Navigation: React.FC = () => {
           }}
         >
           <item.icon size={16} />
-          <Text size="md" fw={location.pathname === item.path ? 600 : 400}>
+          <span style={{ fontSize: "16px", fontWeight: location.pathname === item.path ? 600 : 400 }}>
             {item.label}
-          </Text>
+          </span>
         </Link>
       ))}
       <Group gap="xs">
