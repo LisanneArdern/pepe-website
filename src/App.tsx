@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { MantineProvider, Text, Group, Button, Burger } from "@mantine/core";
+import { MantineProvider, Text, Group, Button, Burger, Stack } from "@mantine/core";
 import { useMediaQuery, useDisclosure } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import { IconUser, IconBriefcase, IconMail } from "@tabler/icons-react";
@@ -40,6 +40,7 @@ const Navigation: React.FC = () => {
           style={{
             color: i18n.language === "es" ? "white" : "#999",
             cursor: "pointer",
+            fontWeight: i18n.language === "es" ? 600 : 400,
           }}
           onClick={() => i18n.changeLanguage("es")}
         >
@@ -50,6 +51,7 @@ const Navigation: React.FC = () => {
           style={{
             color: i18n.language === "en" ? "white" : "#999",
             cursor: "pointer",
+            fontWeight: i18n.language === "en" ? 600 : 400,
           }}
           onClick={() => i18n.changeLanguage("en")}
         >
@@ -60,60 +62,100 @@ const Navigation: React.FC = () => {
   );
 
   return (
-    <div
-      style={{
-        backgroundColor: "#2c2c2c",
-        border: "none",
-        height: "60px",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-      }}
-    >
-      <Group h="100%" justify="space-between" px="xl" style={{ width: "100%" }}>
-        <Text
-          size="lg"
-          fw={700}
-          style={{ color: "white", cursor: "pointer" }}
-          component={Link}
-          to="/projects"
-        >
-          Jose Avila
-        </Text>
+    <>
+      <div
+        style={{
+          backgroundColor: "#2c2c2c",
+          border: "none",
+          height: "60px",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+        }}
+      >
+        <Group h="100%" justify="space-between" px="xl" style={{ width: "100%" }}>
+          <Text
+            size="lg"
+            fw={700}
+            style={{ color: "white", cursor: "pointer" }}
+            component={Link}
+            to="/projects"
+          >
+            Jose Avila
+          </Text>
 
-        {isMobile ? (
-          <Group gap="sm">
-            <Group gap="xs">
-              <Text
-                size="sm"
-                style={{
-                  color: i18n.language === "es" ? "white" : "#999",
-                  cursor: "pointer",
-                }}
-                onClick={() => i18n.changeLanguage("es")}
-              >
-                ESP
-              </Text>
-              <Text
-                size="sm"
-                style={{
-                  color: i18n.language === "en" ? "white" : "#999",
-                  cursor: "pointer",
-                }}
-                onClick={() => i18n.changeLanguage("en")}
-              >
-                EN
-              </Text>
+          {isMobile ? (
+            <Group gap="sm">
+              <Group gap="xs">
+                <Text
+                  size="sm"
+                  style={{
+                    color: i18n.language === "es" ? "white" : "#999",
+                    cursor: "pointer",
+                    fontWeight: i18n.language === "es" ? 600 : 400,
+                  }}
+                  onClick={() => i18n.changeLanguage("es")}
+                >
+                  ESP
+                </Text>
+                <Text
+                  size="sm"
+                  style={{
+                    color: i18n.language === "en" ? "white" : "#999",
+                    cursor: "pointer",
+                    fontWeight: i18n.language === "en" ? 600 : 400,
+                  }}
+                  onClick={() => i18n.changeLanguage("en")}
+                >
+                  EN
+                </Text>
+              </Group>
+              <Burger opened={opened} onClick={toggle} size="sm" color="white" />
             </Group>
-            <Burger opened={opened} onClick={toggle} size="sm" color="white" />
-          </Group>
-        ) : (
-          navContent
-        )}
-      </Group>
-    </div>
+          ) : (
+            navContent
+          )}
+        </Group>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobile && opened && (
+        <div
+          style={{
+            position: "fixed",
+            top: "60px",
+            left: 0,
+            right: 0,
+            backgroundColor: "#2c2c2c",
+            borderTop: "1px solid #444",
+            zIndex: 999,
+            padding: "1rem",
+          }}
+        >
+          <Stack gap="md">
+            {navItems.map((item) => (
+              <Button
+                key={item.path}
+                component={Link}
+                to={item.path}
+                variant="subtle"
+                size="md"
+                style={{ 
+                  color: "white",
+                  justifyContent: "flex-start",
+                  height: "48px"
+                }}
+                onClick={toggle}
+              >
+                {item.label}
+              </Button>
+            ))}
+          </Stack>
+        </div>
+      )}
+    </>
   );
 };
 
