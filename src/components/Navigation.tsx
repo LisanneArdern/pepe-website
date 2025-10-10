@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Text, Group, Burger, Stack, NavLink } from "@mantine/core";
-import { useMediaQuery, useDisclosure } from "@mantine/hooks";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconBriefcase, IconUser, IconMail } from "@tabler/icons-react";
 
-const Navigation: React.FC = () => {
-  const [opened, { toggle }] = useDisclosure();
+interface NavigationProps {
+  onBurgerClick?: () => void;
+  mobile?: boolean;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ onBurgerClick, mobile = false }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const location = useLocation();
 

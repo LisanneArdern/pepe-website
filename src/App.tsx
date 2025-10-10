@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { MantineProvider, Text, Group, Button } from "@mantine/core";
+import { MantineProvider, Text, Group, Button, AppShell, Burger } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import Navigation from "./components/Navigation";
 import Projects from "./pages/Projects";
 import Biography from "./pages/Biography";
@@ -39,20 +40,37 @@ const HomePage: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const [opened, { toggle }] = useDisclosure();
+
   return (
     <MantineProvider>
       <Router>
-        <div style={{ minHeight: "100vh" }}>
-          <Navigation />
-          <div style={{ paddingTop: "60px" }}>
+        <AppShell
+          header={{ height: 60 }}
+          navbar={{
+            width: 300,
+            breakpoint: 'md',
+            collapsed: { mobile: !opened },
+          }}
+          padding="md"
+        >
+          <AppShell.Header>
+            <Navigation onBurgerClick={toggle} />
+          </AppShell.Header>
+
+          <AppShell.Navbar p="md">
+            <Navigation mobile={true} />
+          </AppShell.Navbar>
+
+          <AppShell.Main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/biography" element={<Biography />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </div>
-        </div>
+          </AppShell.Main>
+        </AppShell>
       </Router>
     </MantineProvider>
   );
