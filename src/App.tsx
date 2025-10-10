@@ -6,6 +6,7 @@ import Projects from "./pages/Projects";
 import Biography from "./pages/Biography";
 import Contact from "./pages/Contact";
 import "./App.css";
+import "./i18n";
 
 const HomePage: React.FC = () => {
   return (
