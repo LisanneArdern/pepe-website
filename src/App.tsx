@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { MantineProvider, Text, Group, Button, AppShell, Burger } from "@mantine/core";
+import { MantineProvider, Text, Group, Button, AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Navigation from "./components/Navigation";
 import Projects from "./pages/Projects";
@@ -52,7 +52,7 @@ const App: React.FC = () => {
             breakpoint: 'md',
             collapsed: { mobile: !opened },
           }}
-          padding="md"
+          padding={0}
         >
           <AppShell.Header>
             <Navigation onBurgerClick={toggle} />

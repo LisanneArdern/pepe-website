@@ -176,53 +176,67 @@ const Navigation: React.FC<NavigationProps> = ({ onBurgerClick, mobile = false }
 
   // Otherwise render header content
   return (
-    <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
-      <Text
-        size="lg"
-        fw={700}
-        style={{ color: navStyles.textColor, cursor: "pointer" }}
-        component={Link}
-        to="/projects"
-      >
-        Jose Avila
-      </Text>
+    <div
+      style={{
+        backgroundColor: navStyles.backgroundColor,
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxShadow: navStyles.backgroundColor === "white" 
+          ? "0 2px 4px rgba(0, 0, 0, 0.1)" 
+          : "0 2px 4px rgba(0, 0, 0, 0.3)",
+      }}
+    >
+      <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
+        <Text
+          size="lg"
+          fw={700}
+          style={{ color: navStyles.textColor, cursor: "pointer" }}
+          component={Link}
+          to="/projects"
+        >
+          Jose Avila
+        </Text>
 
-      {isMobile ? (
-        <Group gap="sm">
-          <Group gap="xs">
-            <Text
-              size="sm"
-              style={{
-                color: navStyles.languageInactiveColor,
-                cursor: "pointer",
-                fontWeight: 400,
-              }}
-            >
-              ESP
-            </Text>
-            <Text
-              size="sm"
-              style={{
-                color: navStyles.languageActiveColor,
-                cursor: "pointer",
-                fontWeight: 600,
-              }}
-            >
-              EN
-            </Text>
+        {isMobile ? (
+          <Group gap="sm">
+            <Group gap="xs">
+              <Text
+                size="sm"
+                style={{
+                  color: navStyles.languageInactiveColor,
+                  cursor: "pointer",
+                  fontWeight: 400,
+                }}
+              >
+                ESP
+              </Text>
+              <Text
+                size="sm"
+                style={{
+                  color: navStyles.languageActiveColor,
+                  cursor: "pointer",
+                  fontWeight: 600,
+                }}
+              >
+                EN
+              </Text>
+            </Group>
+            <Burger 
+              opened={false} 
+              onClick={onBurgerClick} 
+              size="sm" 
+              color={navStyles.textColor} 
+              hiddenFrom="md"
+            />
           </Group>
-          <Burger 
-            opened={false} 
-            onClick={onBurgerClick} 
-            size="sm" 
-            color={navStyles.textColor} 
-            hiddenFrom="md"
-          />
-        </Group>
-      ) : (
-        desktopNavContent
-      )}
-    </Group>
+        ) : (
+          desktopNavContent
+        )}
+      </Group>
+    </div>
   );
 };
 

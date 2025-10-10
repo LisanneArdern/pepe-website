@@ -103,6 +103,8 @@ const Projects: React.FC = () => {
         backgroundColor: "#2c2c2c",
         minHeight: "100vh",
         padding: "2rem 0",
+        margin: "-1rem",
+        paddingTop: "calc(2rem + 60px)",
       }}
     >
       <Container size="xl" py="xl">
