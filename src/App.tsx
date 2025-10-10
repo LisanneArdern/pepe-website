@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { MantineProvider, AppShell, Text, Group, Button, Burger } from '@mantine/core';
 import { useMediaQuery, useDisclosure } from '@mantine/hooks';
 import { useTranslation } from 'react-i18next';
-import { IconHome, IconUser, IconBriefcase, IconMail, IconLanguage } from '@tabler/icons-react';
+import { IconUser, IconBriefcase, IconMail, } from '@tabler/icons-react';
 import Projects from './pages/Projects';
 import Biography from './pages/Biography';
 import Contact from './pages/Contact';
@@ -10,22 +10,15 @@ import './App.css';
 import './i18n';
 
 const Navigation: React.FC = () => {
-  const location = useLocation();
   const [opened, { toggle }] = useDisclosure();
   const isMobile = useMediaQuery('(max-width: 768px)');
   const { t, i18n } = useTranslation();
 
   const navItems = [
-    { label: t('navigation.home'), path: '/', icon: IconHome },
-    { label: t('navigation.biography'), path: '/biography', icon: IconUser },
     { label: t('navigation.projects'), path: '/projects', icon: IconBriefcase },
+    { label: t('navigation.biography'), path: '/biography', icon: IconUser },
     { label: t('navigation.contact'), path: '/contact', icon: IconMail },
   ];
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'en' ? 'es' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   const navContent = (
     <Group gap="sm">
@@ -34,41 +27,76 @@ const Navigation: React.FC = () => {
           key={item.path}
           component={Link}
           to={item.path}
-          variant={location.pathname === item.path ? 'filled' : 'subtle'}
-          leftSection={<item.icon size={16} />}
+          variant="subtle"
           size="sm"
+          style={{ color: 'white' }}
         >
           {item.label}
         </Button>
       ))}
-      <Button
-        variant="subtle"
-        leftSection={<IconLanguage size={16} />}
-        size="sm"
-        onClick={toggleLanguage}
-      >
-        {i18n.language === 'en' ? 'ESP' : 'EN'}
-      </Button>
+      <Group gap="xs" style={{ marginLeft: '2rem' }}>
+        <Text 
+          size="sm" 
+          style={{ 
+            color: i18n.language === 'es' ? 'white' : '#999',
+            cursor: 'pointer'
+          }}
+          onClick={() => i18n.changeLanguage('es')}
+        >
+          ESP
+        </Text>
+        <Text 
+          size="sm" 
+          style={{ 
+            color: i18n.language === 'en' ? 'white' : '#999',
+            cursor: 'pointer'
+          }}
+          onClick={() => i18n.changeLanguage('en')}
+        >
+          EN
+        </Text>
+      </Group>
     </Group>
   );
 
   return (
-    <AppShell.Header>
-      <Group h="100%" justify="space-between" px="md">
-        <Text size="lg" fw={700} c="blue">
-          Pepe Website
+    <AppShell.Header style={{ backgroundColor: '#2c2c2c', border: 'none' }}>
+      <Group h="100%" justify="space-between" px="xl" style={{ width: '100%' }}>
+        <Text 
+          size="lg" 
+          fw={700} 
+          style={{ color: 'white', cursor: 'pointer' }}
+          component={Link}
+          to="/projects"
+        >
+          Jose Avila
         </Text>
         
         {isMobile ? (
           <Group gap="sm">
-            <Button
-              variant="subtle"
-              size="sm"
-              onClick={toggleLanguage}
-            >
-              {i18n.language === 'en' ? 'ESP' : 'EN'}
-            </Button>
-            <Burger opened={opened} onClick={toggle} size="sm" />
+            <Group gap="xs">
+              <Text 
+                size="sm" 
+                style={{ 
+                  color: i18n.language === 'es' ? 'white' : '#999',
+                  cursor: 'pointer'
+                }}
+                onClick={() => i18n.changeLanguage('es')}
+              >
+                ESP
+              </Text>
+              <Text 
+                size="sm" 
+                style={{ 
+                  color: i18n.language === 'en' ? 'white' : '#999',
+                  cursor: 'pointer'
+                }}
+                onClick={() => i18n.changeLanguage('en')}
+              >
+                EN
+              </Text>
+            </Group>
+            <Burger opened={opened} onClick={toggle} size="sm" color="white" />
           </Group>
         ) : (
           navContent
@@ -113,21 +141,15 @@ const App: React.FC = () => {
   return (
     <MantineProvider>
       <Router>
-        <AppShell
-          header={{ height: 60 }}
-          padding="md"
-        >
+        <div style={{ minHeight: '100vh' }}>
           <Navigation />
-          
-          <AppShell.Main>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/biography" element={<Biography />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </AppShell.Main>
-        </AppShell>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/biography" element={<Biography />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
       </Router>
     </MantineProvider>
   );
