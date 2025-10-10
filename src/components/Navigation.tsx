@@ -207,20 +207,103 @@ const Navigation: React.FC = () => {
             : "0 2px 4px rgba(0, 0, 0, 0.3)",
         }}
       >
-        <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
-          <Text
-            size="lg"
-            fw={700}
-            style={{ color: navStyles.textColor, cursor: "pointer" }}
-            component={Link}
-            to="/projects"
-          >
-            Jose Avila
-          </Text>
-
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", height: "100%", padding: "0 2rem" }}>
           {isMobile ? (
-            <Group gap="sm">
-              <Group gap="xs">
+            <>
+              <Text
+                size="lg"
+                fw={700}
+                style={{ color: navStyles.textColor, cursor: "pointer" }}
+                component={Link}
+                to="/projects"
+              >
+                Jose Avila
+              </Text>
+              <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <Text
+                    size="sm"
+                    style={{
+                      color: i18n.language === "es" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
+                      cursor: "pointer",
+                      fontWeight: i18n.language === "es" ? 600 : 400,
+                    }}
+                    onClick={() => i18n.changeLanguage("es")}
+                  >
+                    ESP
+                  </Text>
+                  <Text
+                    size="sm"
+                    style={{
+                      color: i18n.language === "en" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
+                      cursor: "pointer",
+                      fontWeight: i18n.language === "en" ? 600 : 400,
+                    }}
+                    onClick={() => i18n.changeLanguage("en")}
+                  >
+                    EN
+                  </Text>
+                </div>
+                <Burger 
+                  opened={opened} 
+                  onClick={toggle} 
+                  size="sm" 
+                  color={navStyles.textColor} 
+                  hiddenFrom="md"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <Text
+                size="lg"
+                fw={700}
+                style={{ color: navStyles.textColor, cursor: "pointer" }}
+                component={Link}
+                to="/projects"
+              >
+                Jose Avila
+              </Text>
+              <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    style={{
+                      color: navStyles.textColor,
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "8px 12px",
+                      borderRadius: "4px",
+                      transition: "background-color 0.2s",
+                      backgroundColor: location.pathname === item.path 
+                        ? (navStyles.backgroundColor === "white" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)")
+                        : "transparent",
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (location.pathname !== item.path) {
+                        e.currentTarget.style.backgroundColor = navStyles.backgroundColor === "white" 
+                          ? "rgba(0, 0, 0, 0.1)" 
+                          : "rgba(255, 255, 255, 0.1)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (location.pathname !== item.path) {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                      }
+                    }}
+                  >
+                    <item.icon size={16} />
+                    <span style={{ fontSize: "16px", fontWeight: location.pathname === item.path ? 600 : 400 }}>
+                      {item.label}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <Text
                   size="sm"
                   style={{
@@ -243,19 +326,10 @@ const Navigation: React.FC = () => {
                 >
                   EN
                 </Text>
-              </Group>
-              <Burger 
-                opened={opened} 
-                onClick={toggle} 
-                size="sm" 
-                color={navStyles.textColor} 
-                hiddenFrom="md"
-              />
-            </Group>
-          ) : (
-            desktopNavContent
+              </div>
+            </>
           )}
-        </Group>
+        </div>
       </div>
 
       {/* Mobile Dropdown Menu */}
