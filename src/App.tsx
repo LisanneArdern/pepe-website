@@ -7,7 +7,6 @@ import Biography from "./pages/Biography";
 import Contact from "./pages/Contact";
 import "./App.css";
 
-
 const HomePage: React.FC = () => {
   return (
     <div
@@ -40,27 +39,13 @@ const HomePage: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
     <MantineProvider>
       <Router>
-        <AppShell
-          header={{ height: 60 }}
-          navbar={{
-            width: 300,
-            breakpoint: 'md',
-            collapsed: { mobile: !opened, desktop: true },
-          }}
-          padding={0}
-        >
+        <AppShell header={{ height: 60 }} padding={0}>
           <AppShell.Header>
-            <Navigation onBurgerClick={toggle} />
+            <Navigation />
           </AppShell.Header>
-
-          <AppShell.Navbar p="md">
-            <Navigation mobile={true} onBurgerClick={toggle} />
-          </AppShell.Navbar>
 
           <AppShell.Main>
             <Routes>
