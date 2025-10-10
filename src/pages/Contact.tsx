@@ -10,6 +10,7 @@ import {
   Stack,
   Anchor
 } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 import { 
   IconMail, 
   IconPhone, 
@@ -25,6 +26,7 @@ interface ContactFormData {
 }
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
   
   const [contactForm, setContactForm] = useState<ContactFormData>({
     name: '',
@@ -78,7 +80,7 @@ const Contact: React.FC = () => {
                 <Grid>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
                     <Text size="sm" c="#9370DB" mb="xs">
-                      tu nombre
+                      {t('contact.form.name')}
                     </Text>
                     <TextInput
                       placeholder=""
@@ -95,7 +97,7 @@ const Contact: React.FC = () => {
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
                     <Text size="sm" c="#9370DB" mb="xs">
-                      teléfono
+                      {t('contact.form.phone')}
                     </Text>
                     <TextInput
                       placeholder=""
@@ -115,7 +117,7 @@ const Contact: React.FC = () => {
                 <Grid>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
                     <Text size="sm" c="#9370DB" mb="xs">
-                      correo electrónico
+                      {t('contact.form.email')}
                     </Text>
                     <TextInput
                       placeholder=""
@@ -133,7 +135,7 @@ const Contact: React.FC = () => {
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
                     <Text size="sm" c="#9370DB" mb="xs">
-                      empresa
+                      {t('contact.form.company')}
                     </Text>
                     <TextInput
                       placeholder=""
@@ -152,7 +154,7 @@ const Contact: React.FC = () => {
 
                 <div>
                   <Text size="sm" c="#9370DB" mb="xs">
-                    mensaje
+                    {t('contact.form.message')}
                   </Text>
                   <Textarea
                     placeholder=""
@@ -179,7 +181,7 @@ const Contact: React.FC = () => {
                       color: 'white'
                     }}
                   >
-                    Enviar
+                    {t('contact.form.send')}
                   </Button>
                 </Group>
               </Stack>
@@ -192,7 +194,7 @@ const Contact: React.FC = () => {
               <Stack gap="md">
                 <div>
                   <Text size="sm" c="#9370DB" mb="xs">
-                    mensaje anónimo:
+                    {t('contact.form.anonymousMessage')}
                   </Text>
                   <Textarea
                     placeholder=""
@@ -219,7 +221,7 @@ const Contact: React.FC = () => {
                       color: 'white'
                     }}
                   >
-                    Enviar
+                    {t('contact.form.send')}
                   </Button>
                 </Group>
               </Stack>

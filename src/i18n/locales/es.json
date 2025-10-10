@@ -1,21 +1,10 @@
 {
   "navigation": {
-    "home": "Inicio",
     "biography": "Biografía",
     "projects": "Proyectos",
     "contact": "Contacto"
   },
-  "home": {
-    "title": "Bienvenido a Mi Portafolio",
-    "subtitle": "Soy un desarrollador full-stack apasionado creando soluciones web innovadoras y entregando experiencias de usuario excepcionales.",
-    "viewProjects": "Ver Mis Proyectos",
-    "getInTouch": "Ponte en Contacto"
-  },
   "biography": {
-    "title": "Acerca de Mí",
-    "name": "John Doe",
-    "title": "Desarrollador Full Stack",
-    "description": "Apasionado por crear soluciones web innovadoras y entregar experiencias de usuario excepcionales. Me encanta trabajar con tecnologías modernas y resolver problemas complejos.",
     "skills": "Habilidades",
     "interests": "Áreas de interés",
     "biographyText": {
@@ -24,13 +13,7 @@
       "paragraph3": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     }
   },
-  "projects": {
-    "title": "Proyectos",
-    "subtitle": "Aquí están algunos de los proyectos en los que he trabajado recientemente"
-  },
   "contact": {
-    "title": "Ponte en Contacto",
-    "subtitle": "Me encantaría saber de ti. Envíame un mensaje y responderé lo antes posible.",
     "form": {
       "name": "tu nombre",
       "email": "correo electrónico",
@@ -39,11 +22,6 @@
       "message": "mensaje",
       "anonymousMessage": "mensaje anónimo:",
       "send": "Enviar"
-    },
-    "contactInfo": {
-      "title": "Información de Contacto",
-      "responseTime": "Tiempo de Respuesta",
-      "responseTimeText": "Normalmente respondo a los mensajes dentro de 24 horas. Para asuntos urgentes, por favor llámame o envíame un mensaje directamente."
     }
   }
 }

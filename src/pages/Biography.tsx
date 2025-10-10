@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Title, Text, Grid, Card, Progress, Group, Stack, Box, SimpleGrid } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 import { IconBike, IconChefHat, IconAtom, IconHeadphones, IconCamera, IconSettings } from '@tabler/icons-react';
 
 interface Skill {
@@ -13,6 +14,7 @@ interface Interest {
 }
 
 const Biography: React.FC = () => {
+  const { t } = useTranslation();
 
   const skills: Skill[] = [
     { name: "Creativity", value: 85 },
@@ -51,15 +53,15 @@ const Biography: React.FC = () => {
                   <Text component="span" size="4rem" fw={700} c="blue" style={{ float: 'left', lineHeight: 1, marginRight: '8px', marginTop: '4px' }}>
                     N
                   </Text>
-                  Nací en la ciudad de México en 1991, desde siempre eh tenido curiosidad por bla bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {t('biography.biographyText.paragraph1')}
                 </Text>
                 
                 <Text size="lg" style={{ lineHeight: 1.6 }}>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                  {t('biography.biographyText.paragraph2')}
                 </Text>
 
                 <Text size="lg" style={{ lineHeight: 1.6 }}>
-                  Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                  {t('biography.biographyText.paragraph3')}
                 </Text>
               </Stack>
             </Grid.Col>
@@ -91,7 +93,7 @@ const Biography: React.FC = () => {
             {/* Skills Section */}
             <Card shadow="sm" padding="lg" radius="md" withBorder>
               <Title order={3} mb="md">
-                Skills
+                {t('biography.skills')}
               </Title>
               <Stack gap="md">
                 {skills.map((skill) => (
@@ -109,7 +111,7 @@ const Biography: React.FC = () => {
             {/* Interests Section */}
             <Card shadow="sm" padding="lg" radius="md" withBorder>
               <Title order={3} mb="md">
-                Interests areas
+                {t('biography.interests')}
               </Title>
               <SimpleGrid cols={2} spacing="md">
                 {interests.map((interest) => (
