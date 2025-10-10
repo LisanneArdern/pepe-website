@@ -2,17 +2,19 @@ import React from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { Text, Group, Burger, Stack } from "@mantine/core";
 import { useMediaQuery, useDisclosure } from "@mantine/hooks";
+import { useTranslation } from "react-i18next";
 import { IconBriefcase, IconUser, IconMail } from "@tabler/icons-react";
 
 const Navigation: React.FC = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const location = useLocation();
+  const { t, i18n } = useTranslation();
   const [opened, { toggle }] = useDisclosure(false);
 
   const navItems = [
-    { label: "Proyectos", path: "/projects", icon: IconBriefcase },
-    { label: "Biografía", path: "/biography", icon: IconUser },
-    { label: "Contacto", path: "/contact", icon: IconMail },
+    { label: t("navigation.projects"), path: "/projects", icon: IconBriefcase },
+    { label: t("navigation.biography"), path: "/biography", icon: IconUser },
+    { label: t("navigation.contact"), path: "/contact", icon: IconMail },
   ];
 
   // Get navigation styles based on current page
@@ -58,7 +60,7 @@ const Navigation: React.FC = () => {
 
   // Desktop navigation content for header
   const desktopNavContent = (
-    <Group gap="lg" align="center">
+    <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
       {navItems.map((item) => (
         <Link
           key={item.path}
@@ -96,29 +98,31 @@ const Navigation: React.FC = () => {
           </span>
         </Link>
       ))}
-      <Group gap="xs">
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Text
           size="sm"
           style={{
-            color: navStyles.languageInactiveColor,
+            color: i18n.language === "es" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
             cursor: "pointer",
-            fontWeight: 400,
+            fontWeight: i18n.language === "es" ? 600 : 400,
           }}
+          onClick={() => i18n.changeLanguage("es")}
         >
           ESP
         </Text>
         <Text
           size="sm"
           style={{
-            color: navStyles.languageActiveColor,
+            color: i18n.language === "en" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
             cursor: "pointer",
-            fontWeight: 600,
+            fontWeight: i18n.language === "en" ? 600 : 400,
           }}
+          onClick={() => i18n.changeLanguage("en")}
         >
           EN
         </Text>
-      </Group>
-    </Group>
+      </div>
+    </div>
   );
 
   // Mobile navigation content for navbar
@@ -165,20 +169,22 @@ const Navigation: React.FC = () => {
         <Text
           size="sm"
           style={{
-            color: navStyles.languageInactiveColor,
+            color: i18n.language === "es" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
             cursor: "pointer",
-            fontWeight: 400,
+            fontWeight: i18n.language === "es" ? 600 : 400,
           }}
+          onClick={() => i18n.changeLanguage("es")}
         >
           ESP
         </Text>
         <Text
           size="sm"
           style={{
-            color: navStyles.languageActiveColor,
+            color: i18n.language === "en" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
             cursor: "pointer",
-            fontWeight: 600,
+            fontWeight: i18n.language === "en" ? 600 : 400,
           }}
+          onClick={() => i18n.changeLanguage("en")}
         >
           EN
         </Text>
@@ -218,20 +224,22 @@ const Navigation: React.FC = () => {
                 <Text
                   size="sm"
                   style={{
-                    color: navStyles.languageInactiveColor,
+                    color: i18n.language === "es" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
                     cursor: "pointer",
-                    fontWeight: 400,
+                    fontWeight: i18n.language === "es" ? 600 : 400,
                   }}
+                  onClick={() => i18n.changeLanguage("es")}
                 >
                   ESP
                 </Text>
                 <Text
                   size="sm"
                   style={{
-                    color: navStyles.languageActiveColor,
+                    color: i18n.language === "en" ? navStyles.languageActiveColor : navStyles.languageInactiveColor,
                     cursor: "pointer",
-                    fontWeight: 600,
+                    fontWeight: i18n.language === "en" ? 600 : 400,
                   }}
+                  onClick={() => i18n.changeLanguage("en")}
                 >
                   EN
                 </Text>
