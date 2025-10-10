@@ -60,7 +60,8 @@ const Navigation: React.FC<NavigationProps> = ({ onBurgerClick, mobile = false }
 
   const navStyles = getNavigationStyles();
 
-  const navContent = (
+  // Desktop navigation content for header
+  const desktopNavContent = (
     <Group gap="lg" align="center">
       {navItems.map((item) => (
         <NavLink
@@ -113,115 +114,115 @@ const Navigation: React.FC<NavigationProps> = ({ onBurgerClick, mobile = false }
     </Group>
   );
 
-  return (
-    <>
-      <div
-        style={{
-          backgroundColor: navStyles.backgroundColor,
-          border: "none",
-          height: "60px",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000,
-          boxShadow: navStyles.backgroundColor === "white" 
-            ? "0 2px 4px rgba(0, 0, 0, 0.1)" 
-            : "0 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
-          <Text
-            size="lg"
-            fw={700}
-            style={{ color: navStyles.textColor, cursor: "pointer" }}
-            component={Link}
-            to="/projects"
-          >
-            Jose Avila
-          </Text>
-
-          {isMobile ? (
-            <Group gap="sm">
-              <Group gap="xs">
-                <Text
-                  size="sm"
-                  style={{
-                    color: navStyles.languageInactiveColor,
-                    cursor: "pointer",
-                    fontWeight: 400,
-                  }}
-                >
-                  ESP
-                </Text>
-                <Text
-                  size="sm"
-                  style={{
-                    color: navStyles.languageActiveColor,
-                    cursor: "pointer",
-                    fontWeight: 600,
-                  }}
-                >
-                  EN
-                </Text>
-              </Group>
-              <Burger opened={opened} onClick={toggle} size="sm" color={navStyles.textColor} />
-            </Group>
-          ) : (
-            navContent
-          )}
-        </Group>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobile && opened && (
-        <div
+  // Mobile navigation content for navbar
+  const mobileNavContent = (
+    <Stack gap="xs">
+      {navItems.map((item) => (
+        <NavLink
+          key={item.path}
+          component={Link}
+          to={item.path}
+          label={item.label}
+          leftSection={<item.icon size={16} />}
+          active={location.pathname === item.path}
+          variant="subtle"
+          onClick={onBurgerClick}
           style={{
-            position: "fixed",
-            top: "60px",
-            left: 0,
-            right: 0,
-            backgroundColor: navStyles.backgroundColor,
-            borderTop: `1px solid ${navStyles.backgroundColor === "white" ? "#ddd" : "#444"}`,
-            zIndex: 999,
-            padding: "1rem",
-            boxShadow: navStyles.backgroundColor === "white" 
-              ? "0 2px 4px rgba(0, 0, 0, 0.1)" 
-              : "0 2px 4px rgba(0, 0, 0, 0.3)",
+            color: navStyles.textColor,
+            backgroundColor: "transparent",
+            "&:hover": {
+              backgroundColor: navStyles.backgroundColor === "white" 
+                ? "rgba(0, 0, 0, 0.1)" 
+                : "rgba(255, 255, 255, 0.1)",
+            },
+            "&[data-active]": {
+              backgroundColor: navStyles.backgroundColor === "white" 
+                ? "rgba(0, 0, 0, 0.2)" 
+                : "rgba(255, 255, 255, 0.2)",
+              color: navStyles.textColor,
+            }
+          }}
+        />
+      ))}
+      <Group gap="xs" mt="md">
+        <Text
+          size="sm"
+          style={{
+            color: navStyles.languageInactiveColor,
+            cursor: "pointer",
+            fontWeight: 400,
           }}
         >
-          <Stack gap="xs">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                component={Link}
-                to={item.path}
-                label={item.label}
-                leftSection={<item.icon size={16} />}
-                active={location.pathname === item.path}
-                variant="subtle"
-                onClick={toggle}
-                style={{
-                  color: navStyles.textColor,
-                  backgroundColor: "transparent",
-                  "&:hover": {
-                    backgroundColor: navStyles.backgroundColor === "white" 
-                      ? "rgba(0, 0, 0, 0.1)" 
-                      : "rgba(255, 255, 255, 0.1)",
-                  },
-                  "&[data-active]": {
-                    backgroundColor: navStyles.backgroundColor === "white" 
-                      ? "rgba(0, 0, 0, 0.2)" 
-                      : "rgba(255, 255, 255, 0.2)",
-                    color: navStyles.textColor,
-                  }
-                }}
-              />
-            ))}
-          </Stack>
-        </div>
+          ESP
+        </Text>
+        <Text
+          size="sm"
+          style={{
+            color: navStyles.languageActiveColor,
+            cursor: "pointer",
+            fontWeight: 600,
+          }}
+        >
+          EN
+        </Text>
+      </Group>
+    </Stack>
+  );
+
+  // If mobile prop is true, render mobile navbar content
+  if (mobile) {
+    return mobileNavContent;
+  }
+
+  // Otherwise render header content
+  return (
+    <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
+      <Text
+        size="lg"
+        fw={700}
+        style={{ color: navStyles.textColor, cursor: "pointer" }}
+        component={Link}
+        to="/projects"
+      >
+        Jose Avila
+      </Text>
+
+      {isMobile ? (
+        <Group gap="sm">
+          <Group gap="xs">
+            <Text
+              size="sm"
+              style={{
+                color: navStyles.languageInactiveColor,
+                cursor: "pointer",
+                fontWeight: 400,
+              }}
+            >
+              ESP
+            </Text>
+            <Text
+              size="sm"
+              style={{
+                color: navStyles.languageActiveColor,
+                cursor: "pointer",
+                fontWeight: 600,
+              }}
+            >
+              EN
+            </Text>
+          </Group>
+          <Burger 
+            opened={false} 
+            onClick={onBurgerClick} 
+            size="sm" 
+            color={navStyles.textColor} 
+            hiddenFrom="md"
+          />
+        </Group>
+      ) : (
+        desktopNavContent
       )}
-    </>
+    </Group>
   );
 };
 

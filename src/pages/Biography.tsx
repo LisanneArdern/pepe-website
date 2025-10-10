@@ -35,9 +35,7 @@ const Biography: React.FC = () => {
     <div style={{ 
       backgroundColor: 'white', 
       minHeight: '100vh',
-      padding: '2rem 0',
-      marginTop: '-60px',
-      paddingTop: '80px'
+      padding: '2rem 0'
     }}>
       <Container size="lg" py="xl">
         <Grid>
