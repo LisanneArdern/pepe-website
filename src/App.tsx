@@ -21,20 +21,23 @@ const Navigation: React.FC = () => {
   ];
 
   const navContent = (
-    <Group gap="sm">
+    <Group gap="lg" align="center">
       {navItems.map((item) => (
-        <Button
+        <Text
           key={item.path}
           component={Link}
           to={item.path}
-          variant="subtle"
-          size="sm"
-          style={{ color: "white" }}
+          size="md"
+          style={{ 
+            color: "white",
+            textDecoration: "none",
+            cursor: "pointer"
+          }}
         >
           {item.label}
-        </Button>
+        </Text>
       ))}
-      <Group gap="xs" style={{ marginLeft: "2rem" }}>
+      <Group gap="xs">
         <Text
           size="sm"
           style={{
@@ -75,7 +78,7 @@ const Navigation: React.FC = () => {
           zIndex: 1000,
         }}
       >
-        <Group h="100%" justify="space-between" px="xl" style={{ width: "100%" }}>
+        <Group h="100%" justify="center" px="xl" style={{ width: "100%" }} gap="xl">
           <Text
             size="lg"
             fw={700}
@@ -196,14 +199,16 @@ const App: React.FC = () => {
   return (
     <MantineProvider>
       <Router>
-        <div style={{ minHeight: "100vh", paddingTop: "60px" }}>
+        <div style={{ minHeight: "100vh" }}>
           <Navigation />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/biography" element={<Biography />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <div style={{ paddingTop: "60px" }}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/biography" element={<Biography />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     </MantineProvider>

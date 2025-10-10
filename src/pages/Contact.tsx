@@ -67,7 +67,9 @@ const Contact: React.FC = () => {
     <div style={{ 
       backgroundColor: '#4B0082', 
       minHeight: '100vh',
-      padding: '2rem 0'
+      padding: '2rem 0',
+      marginTop: '-60px',
+      paddingTop: '80px'
     }}>
       <Container size="lg">
         <Stack gap="xl">
