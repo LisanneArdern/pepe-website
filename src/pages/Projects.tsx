@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Grid, Box, Text } from "@mantine/core";
-import { useTranslation } from "react-i18next";
 
 interface Project {
   id: number;
@@ -10,7 +9,6 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
-  const { t } = useTranslation();
 
   const projects: Project[] = [
     {

@@ -1,23 +1,19 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { MantineProvider, Text, Group, Button, Burger, Stack } from "@mantine/core";
 import { useMediaQuery, useDisclosure } from "@mantine/hooks";
-import { useTranslation } from "react-i18next";
-import { IconUser, IconBriefcase, IconMail } from "@tabler/icons-react";
 import Projects from "./pages/Projects";
 import Biography from "./pages/Biography";
 import Contact from "./pages/Contact";
 import "./App.css";
-import "./i18n";
 
 const Navigation: React.FC = () => {
   const [opened, { toggle }] = useDisclosure();
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const { t, i18n } = useTranslation();
 
   const navItems = [
-    { label: t("navigation.projects"), path: "/projects", icon: IconBriefcase },
-    { label: t("navigation.biography"), path: "/biography", icon: IconUser },
-    { label: t("navigation.contact"), path: "/contact", icon: IconMail },
+    { label: "Proyectos", path: "/projects" },
+    { label: "Biografía", path: "/biography" },
+    { label: "Contacto", path: "/contact" },
   ];
 
   const navContent = (
@@ -41,22 +37,20 @@ const Navigation: React.FC = () => {
         <Text
           size="sm"
           style={{
-            color: i18n.language === "es" ? "white" : "#999",
+            color: "#999",
             cursor: "pointer",
-            fontWeight: i18n.language === "es" ? 600 : 400,
+            fontWeight: 400,
           }}
-          onClick={() => i18n.changeLanguage("es")}
         >
           ESP
         </Text>
         <Text
           size="sm"
           style={{
-            color: i18n.language === "en" ? "white" : "#999",
+            color: "white",
             cursor: "pointer",
-            fontWeight: i18n.language === "en" ? 600 : 400,
+            fontWeight: 600,
           }}
-          onClick={() => i18n.changeLanguage("en")}
         >
           EN
         </Text>
@@ -91,30 +85,28 @@ const Navigation: React.FC = () => {
 
           {isMobile ? (
             <Group gap="sm">
-              <Group gap="xs">
-                <Text
-                  size="sm"
-                  style={{
-                    color: i18n.language === "es" ? "white" : "#999",
-                    cursor: "pointer",
-                    fontWeight: i18n.language === "es" ? 600 : 400,
-                  }}
-                  onClick={() => i18n.changeLanguage("es")}
-                >
-                  ESP
-                </Text>
-                <Text
-                  size="sm"
-                  style={{
-                    color: i18n.language === "en" ? "white" : "#999",
-                    cursor: "pointer",
-                    fontWeight: i18n.language === "en" ? 600 : 400,
-                  }}
-                  onClick={() => i18n.changeLanguage("en")}
-                >
-                  EN
-                </Text>
-              </Group>
+            <Group gap="xs">
+              <Text
+                size="sm"
+                style={{
+                  color: "#999",
+                  cursor: "pointer",
+                  fontWeight: 400,
+                }}
+              >
+                ESP
+              </Text>
+              <Text
+                size="sm"
+                style={{
+                  color: "white",
+                  cursor: "pointer",
+                  fontWeight: 600,
+                }}
+              >
+                EN
+              </Text>
+            </Group>
               <Burger opened={opened} onClick={toggle} size="sm" color="white" />
             </Group>
           ) : (
@@ -163,8 +155,6 @@ const Navigation: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  const { t } = useTranslation();
-
   return (
     <div
       style={{
@@ -178,17 +168,17 @@ const HomePage: React.FC = () => {
       }}
     >
       <Text size="3rem" fw={700} mb="md">
-        {t("home.title")}
+        Welcome to My Portfolio
       </Text>
       <Text size="lg" c="dimmed" mb="xl" maw={600}>
-        {t("home.subtitle")}
+        I'm a passionate full-stack developer creating innovative web solutions.
       </Text>
       <Group gap="md">
         <Button component={Link} to="/projects" size="lg">
-          {t("home.viewProjects")}
+          View My Projects
         </Button>
         <Button component={Link} to="/contact" variant="outline" size="lg">
-          {t("home.getInTouch")}
+          Get In Touch
         </Button>
       </Group>
     </div>
