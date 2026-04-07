@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Text, Group, Burger, Stack, Box } from "@mantine/core";
+import { Text, Group, Burger, Stack, Box, UnstyledButton } from "@mantine/core";
 import { useMediaQuery, useDisclosure } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import { IconBriefcase, IconUser, IconMail, IconX } from "@tabler/icons-react";
@@ -98,8 +98,10 @@ const Navigation: React.FC = () => {
         </Link>
       ))}
       <Group gap="xs" mt="md">
-        <Text
-          size="sm"
+        <UnstyledButton
+          aria-label="Switch language to Spanish"
+          aria-pressed={i18n.language === "es"}
+          onClick={() => i18n.changeLanguage("es")}
           style={{
             color:
               i18n.language === "es"
@@ -107,13 +109,15 @@ const Navigation: React.FC = () => {
                 : navStyles.languageInactiveColor,
             cursor: "pointer",
             fontWeight: i18n.language === "es" ? 600 : 400,
+            fontSize: "0.875rem",
           }}
-          onClick={() => i18n.changeLanguage("es")}
         >
           ESP
-        </Text>
-        <Text
-          size="sm"
+        </UnstyledButton>
+        <UnstyledButton
+          aria-label="Switch language to English"
+          aria-pressed={i18n.language === "en"}
+          onClick={() => i18n.changeLanguage("en")}
           style={{
             color:
               i18n.language === "en"
@@ -121,11 +125,11 @@ const Navigation: React.FC = () => {
                 : navStyles.languageInactiveColor,
             cursor: "pointer",
             fontWeight: i18n.language === "en" ? 600 : 400,
+            fontSize: "0.875rem",
           }}
-          onClick={() => i18n.changeLanguage("en")}
         >
           EN
-        </Text>
+        </UnstyledButton>
       </Group>
     </Stack>
   );

@@ -179,8 +179,7 @@ const Contact: React.FC = () => {
             bottom="2rem"
             left="2rem"
             display="flex"
-            style={{ flexDirection: "column" }}
-            gap="0.5rem"
+            style={{ flexDirection: "column", gap: "0.5rem" }}
           >
             <Group gap="sm">
               <IconMail size={16} color="#9370DB" />
@@ -198,7 +197,13 @@ const Contact: React.FC = () => {
 
             <Group gap="sm">
               <IconBrandInstagram size={16} color="#9370DB" />
-              <Anchor href="https://instagram.com/zep666" c="#9370DB" size="sm" target="_blank">
+              <Anchor
+                href="https://instagram.com/zep666"
+                c="#9370DB"
+                size="sm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 zep666
               </Anchor>
             </Group>
