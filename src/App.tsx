@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { MantineProvider, Text, Group, Button, Box } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import Navigation from "./components/Navigation";
 import Projects from "./pages/Projects";
 import Biography from "./pages/Biography";
@@ -20,33 +20,6 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
-const HomePage: React.FC = () => {
-  return (
-    <Box
-      display="flex"
-      style={{ flexDirection: "column", alignItems: "center", justifyContent: "center" }}
-      mih="60vh"
-      ta="center"
-      p="calc(2rem + 60px) 2rem 2rem"
-    >
-      <Text size="3rem" fw={700} mb="md">
-        Welcome to My Portfolio
-      </Text>
-      <Text size="lg" c="dimmed" mb="xl" maw={600}>
-        I'm a passionate full-stack developer creating innovative web solutions.
-      </Text>
-      <Group gap="md">
-        <Button component={Link} to="/projects" size="lg">
-          View My Projects
-        </Button>
-        <Button component={Link} to="/contact" variant="outline" size="lg">
-          Get In Touch
-        </Button>
-      </Group>
-    </Box>
-  );
-};
-
 const App: React.FC = () => {
   return (
     <MantineProvider>
@@ -54,7 +27,7 @@ const App: React.FC = () => {
         <ScrollToTop />
         <Navigation />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Navigate to="/projects" replace />} />
           <Route path="/biography" element={<Biography />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:projectId" element={<ProjectPlaceholder />} />
