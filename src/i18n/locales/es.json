@@ -1,0 +1,73 @@
+{
+  "navigation": {
+    "biography": "Biografía",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "menu": "Menú"
+  },
+  "projects": {
+    "categories": {
+      "furniture": "Mobiliario",
+      "ceramicsProduct": "Cerámica, Producto",
+      "editorial": "Editorial",
+      "artDirectionProduct": "Dirección de Arte, Producto",
+      "product": "Producto",
+      "teaching": "Docencia"
+    },
+    "items": {
+      "columpio": { "title": "Columpio" },
+      "felipe": { "title": "Felipe" },
+      "cuencosDeMexico": { "title": "Cuencos de México 2da. Temporada" },
+      "tesisDisenoViolencia": { "title": "Tesis: Diseño y Violencia" },
+      "viajeMediterraneo": { "title": "Viaje al Mediterráneo" },
+      "suljaa": { "title": "Suljaa'" },
+      "segundoAire": { "title": "Segundo Aire" },
+      "altosLicuadora": { "title": "Altos: Licuadora de cocktail" },
+      "docencia": { "title": "Docencia" },
+      "sad": { "title": "SAD: Sindicato de Artistas y Diseñadores" },
+      "avionDePapel": { "title": "Avión de papel" },
+      "frontera": { "title": "Frontera" }
+    },
+    "placeholder": {
+      "title": "Marcador de proyecto",
+      "forProject": "Esta es la página provisional para:",
+      "description": "Más adelante podemos agregar aquí la maqueta y el contenido completo del proyecto.",
+      "backButton": "Volver a Proyectos"
+    }
+  },
+  "biography": {
+    "skills": "Habilidades",
+    "interests": "Áreas de interés",
+    "skillItems": {
+      "creativity": "Creatividad",
+      "autodidact": "Autodidacta",
+      "leadership": "Liderazgo",
+      "teamwork": "Trabajo en equipo",
+      "workUnderPressure": "Trabajo bajo presión"
+    },
+    "interestItems": {
+      "cycling": "Ciclismo",
+      "food": "Comida",
+      "materials": "Materiales",
+      "music": "Música",
+      "photography": "Fotografía",
+      "industrialProcess": "Proceso industrial"
+    },
+    "biographyText": {
+      "paragraph1": "Nací en la ciudad de México en 1991, desde siempre eh tenido curiosidad por bla bla bla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "paragraph2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "paragraph3": "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "tu nombre",
+      "email": "correo electrónico",
+      "phone": "teléfono",
+      "company": "empresa",
+      "message": "mensaje",
+      "anonymousMessage": "mensaje anónimo:",
+      "send": "Enviar"
+    }
+  }
+}
