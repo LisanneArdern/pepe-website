@@ -1,152 +1,203 @@
 import React from "react";
-import { Container, Grid, Box, Text } from "@mantine/core";
+import { Container, Box, Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import bikeImage from "../assets/images/projects/bike.jpg";
+import holyShitImage from "../assets/images/projects/holy-shit-2.jpg";
+import thermalCamaraImage from "../assets/images/projects/thermal-camara.png";
+import stoolImage from "../assets/images/projects/stool.png";
 
 interface Project {
   id: number;
-  title: string;
-  category: string;
+  titleKey: string;
+  categoryKey: string;
   image: string;
+  slug: string;
 }
 
+const CARD_HEIGHTS = [520, 340, 460, 380, 560, 360];
+
 const Projects: React.FC = () => {
+  const { t } = useTranslation();
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const projectImages = [
+    bikeImage,
+    holyShitImage,
+    thermalCamaraImage,
+    stoolImage,
+  ];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "Columpio",
-      category: "Mobiliario",
-      image:
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+      titleKey: "projects.items.columpio.title",
+      categoryKey: "projects.categories.furniture",
+      image: projectImages[0],
+      slug: "columpio",
     },
     {
       id: 2,
-      title: "Felipe",
-      category: "Mobiliario",
-      image:
-        "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop",
+      titleKey: "projects.items.felipe.title",
+      categoryKey: "projects.categories.furniture",
+      image: projectImages[1],
+      slug: "felipe",
     },
     {
       id: 3,
-      title: "Cuencos de México 2da. Temporada",
-      category: "Cerámica, Producto",
-      image:
-        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop",
+      titleKey: "projects.items.cuencosDeMexico.title",
+      categoryKey: "projects.categories.ceramicsProduct",
+      image: projectImages[2],
+      slug: "cuencos-de-mexico-2da-temporada",
     },
     {
       id: 4,
-      title: "Tesis: Diseño y Violencia",
-      category: "Editorial",
-      image:
-        "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+      titleKey: "projects.items.tesisDisenoViolencia.title",
+      categoryKey: "projects.categories.editorial",
+      image: projectImages[3],
+      slug: "tesis-diseno-y-violencia",
     },
     {
       id: 5,
-      title: "Viaje al Mediterráneo",
-      category: "Dirección de Arte, Producto",
-      image:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop",
+      titleKey: "projects.items.viajeMediterraneo.title",
+      categoryKey: "projects.categories.artDirectionProduct",
+      image: projectImages[0],
+      slug: "viaje-al-mediterraneo",
     },
     {
       id: 6,
-      title: "Suljaa'",
-      category: "Mobiliario",
-      image:
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop",
+      titleKey: "projects.items.suljaa.title",
+      categoryKey: "projects.categories.furniture",
+      image: projectImages[1],
+      slug: "suljaa",
     },
     {
       id: 7,
-      title: "Segundo Aire",
-      category: "Producto",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      titleKey: "projects.items.segundoAire.title",
+      categoryKey: "projects.categories.product",
+      image: projectImages[2],
+      slug: "segundo-aire",
     },
     {
       id: 8,
-      title: "Altos: Licuadora de cocktail",
-      category: "Producto",
-      image:
-        "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&h=400&fit=crop",
+      titleKey: "projects.items.altosLicuadora.title",
+      categoryKey: "projects.categories.product",
+      image: projectImages[3],
+      slug: "altos-licuadora-de-cocktail",
     },
     {
       id: 9,
-      title: "Docencia",
-      category: "Docencia",
-      image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
+      titleKey: "projects.items.docencia.title",
+      categoryKey: "projects.categories.teaching",
+      image: projectImages[0],
+      slug: "docencia",
     },
     {
       id: 10,
-      title: "SAD: Sindicato de Artistas y Diseñadores",
-      category: "Editorial",
-      image:
-        "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=400&fit=crop",
+      titleKey: "projects.items.sad.title",
+      categoryKey: "projects.categories.editorial",
+      image: projectImages[1],
+      slug: "sad-sindicato-de-artistas-y-disenadores",
     },
     {
       id: 11,
-      title: "Avión de papel",
-      category: "Producto",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      titleKey: "projects.items.avionDePapel.title",
+      categoryKey: "projects.categories.product",
+      image: projectImages[2],
+      slug: "avion-de-papel",
     },
     {
       id: 12,
-      title: "Frontera",
-      category: "Cerámica, Producto",
-      image:
-        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop",
+      titleKey: "projects.items.frontera.title",
+      categoryKey: "projects.categories.ceramicsProduct",
+      image: projectImages[3],
+      slug: "frontera",
     },
   ];
 
+  const [heroProject, ...gridProjects] = projects;
+
   return (
-    <div
-      style={{
-        backgroundColor: "#2c2c2c",
-        minHeight: "100vh",
-        padding: "2rem 0",
-        margin: "-1rem",
-        paddingTop: "calc(2rem + 60px)",
-      }}
-    >
+    <Box bg="#151515" mih="100vh" w="100%">
+      <Link
+        to={`/projects/${heroProject.slug}`}
+        style={{ textDecoration: "none", color: "white" }}
+      >
+        <Box
+          mih={isMobile ? "80vh" : "100vh"}
+          w="100%"
+          display="flex"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(${heroProject.image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            alignItems: "flex-end",
+            padding: isMobile ? "1rem" : "2.5rem",
+          }}
+        >
+          <Box maw={isMobile ? "100%" : "42rem"}>
+            <Text fw={700} style={{ fontSize: "clamp(2rem, 6vw, 3.5rem)", lineHeight: 1.05 }}>
+              {t(heroProject.titleKey)}
+            </Text>
+            <Text c="#e6e6e6" style={{ fontSize: "clamp(1rem, 2.2vw, 1.25rem)" }}>
+              {t(heroProject.categoryKey)}
+            </Text>
+          </Box>
+        </Box>
+      </Link>
+
       <Container size="xl" py="xl">
-        <Grid>
-          {projects.map((project) => (
-            <Grid.Col key={project.id} span={{ base: 12, sm: 6, md: 4, lg: 3 }}>
-              <Box
-                style={{
-                  cursor: "pointer",
-                  transition: "transform 0.2s ease",
-                  "&:hover": {
-                    transform: "translateY(-2px)",
-                  },
-                }}
+        <Box className="projects-masonry">
+          {gridProjects.map((project, index) => (
+            <Box key={project.id} className="projects-masonry-item">
+              <Link
+                to={`/projects/${project.slug}`}
+                style={{ textDecoration: "none", color: "white" }}
               >
                 <Box
-                  style={{
-                    height: "300px",
-                    backgroundImage: `url(${project.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundColor: "#f8f9fa",
-                    border: "1px solid #e9ecef",
-                    borderRadius: "4px",
-                    marginBottom: "1rem",
-                  }}
-                />
-
-                <Box>
-                  <Text size="lg" fw={500} mb="xs" style={{ color: "white" }}>
-                    {project.title}
-                  </Text>
-                  <Text size="sm" style={{ color: "#999" }}>
-                    {project.category}
-                  </Text>
+                  className="project-card"
+                  pos="relative"
+                  style={{ ["--card-height" as string]: `${CARD_HEIGHTS[index % CARD_HEIGHTS.length]}px` }}
+                >
+                  <Box
+                    className="project-card-image"
+                    pos="absolute"
+                    inset={0}
+                    style={{
+                      backgroundImage: `url(${project.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      transition: "transform 0.45s ease",
+                    }}
+                  />
+                  <Box
+                    className="project-card-overlay"
+                    pos="absolute"
+                    inset={0}
+                    display="flex"
+                    style={{
+                      background:
+                        "linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15))",
+                      flexDirection: "column",
+                      justifyContent: "flex-end",
+                      padding: "1.25rem",
+                      transition: "opacity 0.35s ease",
+                    }}
+                  >
+                    <Text size="xl" fw={700}>
+                      {t(project.titleKey)}
+                    </Text>
+                    <Text size="sm" c="#d0d0d0">
+                      {t(project.categoryKey)}
+                    </Text>
+                  </Box>
                 </Box>
-              </Box>
-            </Grid.Col>
+              </Link>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
-    </div>
+    </Box>
   );
 };
 
