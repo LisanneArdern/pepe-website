@@ -40,6 +40,7 @@ const Navigation: React.FC = () => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const [opened, { toggle }] = useDisclosure(false);
+  const hideTopBarOnMobileMenuOpen = isMobile && opened;
   const closeMenu = () => {
     if (opened) {
       toggle();
@@ -144,11 +145,13 @@ const Navigation: React.FC = () => {
         h={60}
         display="flex"
         style={{
-          zIndex: 1200,
+          zIndex: hideTopBarOnMobileMenuOpen ? 1197 : 1200,
           alignItems: "center",
           justifyContent: "space-between",
           padding: isMobile ? "0 0.9rem" : "0 1.5rem",
           pointerEvents: "none",
+          opacity: hideTopBarOnMobileMenuOpen ? 0 : 1,
+          transition: "opacity 0.2s ease",
         }}
       >
         <Text
@@ -161,7 +164,7 @@ const Navigation: React.FC = () => {
           style={{
             cursor: "pointer",
             whiteSpace: "nowrap",
-            pointerEvents: "auto",
+            pointerEvents: hideTopBarOnMobileMenuOpen ? "none" : "auto",
             textShadow: "0 1px 4px rgba(0, 0, 0, 0.35)",
           }}
         >
@@ -190,7 +193,7 @@ const Navigation: React.FC = () => {
             pos="fixed"
             inset={0}
             bg="rgba(0, 0, 0, 0.35)"
-            style={{ zIndex: 1198 }}
+            style={{ zIndex: 1201 }}
           />
           <Box
             pos="fixed"
@@ -206,7 +209,7 @@ const Navigation: React.FC = () => {
               borderTop: "none",
               borderRight: "none",
               borderBottom: "none",
-              zIndex: 1199,
+              zIndex: 1202,
               boxShadow: "-8px 0 20px rgba(0, 0, 0, 0.25)",
             }}
           >
